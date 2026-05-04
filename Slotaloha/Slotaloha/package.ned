@@ -1,0 +1,3 @@
+package Slotaloha;
+
+@license(LGPL);

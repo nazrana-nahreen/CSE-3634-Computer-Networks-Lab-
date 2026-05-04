@@ -1,0 +1,43 @@
+version 3
+run General-0-20260504-14:43:00-2604
+attr configname General
+attr datetime 20260504-14:43:00
+attr datetimef 20260504-144300
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Slotaloha.AlohaNetwork
+attr processid 2604
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Slotaloha.AlohaNetwork
+config sim-time-limit 20s
+config *.host[*].slotTime 1
+config *.server.slotTime 1
+
+par AlohaNetwork.server typename "\"Slotaloha.Server\""
+par AlohaNetwork.server slotTime 1
+scalar AlohaNetwork.server "Packets Received" 14
+scalar AlohaNetwork.server Collisions 9
+scalar AlohaNetwork.server "Total Attempts" 23
+scalar AlohaNetwork.server Slots 20
+scalar AlohaNetwork.server "Offered Load (G)" 1.15
+scalar AlohaNetwork.server "Theoretical Throughput (S)" 0.36413228478591
+par AlohaNetwork.host[0] typename "\"Slotaloha.Host\""
+par AlohaNetwork.host[0] slotTime 1
+par AlohaNetwork.host[1] typename "\"Slotaloha.Host\""
+par AlohaNetwork.host[1] slotTime 1
+par AlohaNetwork.host[2] typename "\"Slotaloha.Host\""
+par AlohaNetwork.host[2] slotTime 1
+par AlohaNetwork.host[3] typename "\"Slotaloha.Host\""
+par AlohaNetwork.host[3] slotTime 1
+par AlohaNetwork.host[4] typename "\"Slotaloha.Host\""
+par AlohaNetwork.host[4] slotTime 1
+par AlohaNetwork typename "\"Slotaloha.AlohaNetwork\""
+
