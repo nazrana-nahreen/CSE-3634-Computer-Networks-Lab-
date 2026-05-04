@@ -1,0 +1,49 @@
+version 3
+run General-0-20260504-14:38:18-2412
+attr configname General
+attr datetime 20260504-14:38:18
+attr datetimef 20260504-143818
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network PureAloha.AlohaNetwork
+attr processid 2412
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network PureAloha.AlohaNetwork
+config sim-time-limit 20s
+config *.host[*].packetDuration 1
+config *.server.packetDuration 1
+config *.host[*].meanInterArrival 10
+
+par AlohaNetwork.server typename "\"PureAloha.Server\""
+par AlohaNetwork.server packetDuration 1
+scalar AlohaNetwork.server "Packets Received" 3
+scalar AlohaNetwork.server Collisions 4
+scalar AlohaNetwork.server "Total Attempts" 7
+scalar AlohaNetwork.server Slots 20
+scalar AlohaNetwork.server "Offered Load (G)" 0.35
+scalar AlohaNetwork.server "Theoretical Throughput (S)" 0.17380485632699
+par AlohaNetwork.host[0] typename "\"PureAloha.Host\""
+par AlohaNetwork.host[0] meanInterArrival 10
+par AlohaNetwork.host[0] packetDuration 1
+par AlohaNetwork.host[1] typename "\"PureAloha.Host\""
+par AlohaNetwork.host[1] meanInterArrival 10
+par AlohaNetwork.host[1] packetDuration 1
+par AlohaNetwork.host[2] typename "\"PureAloha.Host\""
+par AlohaNetwork.host[2] meanInterArrival 10
+par AlohaNetwork.host[2] packetDuration 1
+par AlohaNetwork.host[3] typename "\"PureAloha.Host\""
+par AlohaNetwork.host[3] meanInterArrival 10
+par AlohaNetwork.host[3] packetDuration 1
+par AlohaNetwork.host[4] typename "\"PureAloha.Host\""
+par AlohaNetwork.host[4] meanInterArrival 10
+par AlohaNetwork.host[4] packetDuration 1
+par AlohaNetwork typename "\"PureAloha.AlohaNetwork\""
+
