@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/hopcountclean -n .:../src $*
+# for shared lib, use: opp_run -l ../src/hopcountclean -n .:../src $*

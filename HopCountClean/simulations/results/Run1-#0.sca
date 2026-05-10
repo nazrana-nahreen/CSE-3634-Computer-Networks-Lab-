@@ -1,0 +1,43 @@
+version 3
+run Run1-0-20260509-13:05:16-20096
+attr configname Run1
+attr datetime 20260509-13:05:16
+attr datetimef 20260509-130516
+attr experiment Run1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network hopcount.HopNetwork
+attr processid 20096
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 1
+config seed-set 1
+config description "Seed 1 – baseline path"
+config network hopcount.HopNetwork
+config sim-time-limit 100s
+config **.cmdenv-log-level detail
+config **.receiver.finalHopCount.result-recording-modes all
+config **.receiver.finalHopCount.vector-recording true
+config **.r[*].hopCount.result-recording-modes all
+
+par HopNetwork.sender typename "\"hopcount.Sender\""
+par HopNetwork.receiver typename "\"hopcount.Receiver\""
+scalar HopNetwork.receiver packetsReceived 1
+scalar HopNetwork.receiver averageHopCount 5
+par HopNetwork.r[0] typename "\"hopcount.Router\""
+par HopNetwork.r[1] typename "\"hopcount.Router\""
+par HopNetwork.r[2] typename "\"hopcount.Router\""
+par HopNetwork.r[3] typename "\"hopcount.Router\""
+par HopNetwork.r[4] typename "\"hopcount.Router\""
+par HopNetwork.r[5] typename "\"hopcount.Router\""
+par HopNetwork.r[6] typename "\"hopcount.Router\""
+par HopNetwork.r[7] typename "\"hopcount.Router\""
+par HopNetwork.r[8] typename "\"hopcount.Router\""
+par HopNetwork.r[9] typename "\"hopcount.Router\""
+par HopNetwork typename "\"hopcount.HopNetwork\""
+
