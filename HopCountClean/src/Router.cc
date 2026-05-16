@@ -22,12 +22,13 @@ void Router::handleMessage(cMessage *msg)
     // ── Step 2: decrement TTL ───────────────────────────────
     pkt->setTtl(pkt->getTtl() - 1);
 
-    EV << "[" << getFullName() << "] hopCount=" << pkt->getHopCount()
-       << "  ttl=" << pkt->getTtl() << "\n";
+    EV << "[" << getFullName() << "] Packet #" << pkt->getPacketNumber()
+       << " hopCount=" << pkt->getHopCount() << "  ttl=" << pkt->getTtl() << "\n";
 
     // ── Step 3: TTL check ───────────────────────────────────
     if (pkt->getTtl() <= 0) {
-        EV << "[" << getFullName() << "] TTL exhausted – dropping packet.\n";
+        EV << "[" << getFullName() << "] TTL exhausted for packet #"
+           << pkt->getPacketNumber() << " – dropping packet.\n";
         emit(droppedSignal, 1);
         totalDropped++;
         delete pkt;
@@ -45,7 +46,8 @@ void Router::handleMessage(cMessage *msg)
 
     if (connectedGates.empty()) {
         // Dead end – should not happen in a well-wired network
-        EV << "[" << getFullName() << "] No connected output gates – dropping.\n";
+        EV << "[" << getFullName() << "] No connected output gates – dropping packet #"
+           << pkt->getPacketNumber() << ".\n";
         emit(droppedSignal, 1);
         totalDropped++;
         delete pkt;
@@ -56,8 +58,20 @@ void Router::handleMessage(cMessage *msg)
     // intrand(N) uses the module's RNG (seed controlled by omnetpp.ini)
     int chosen = connectedGates[intrand(connectedGates.size())];
 
+    EV << "[" << getFullName() << "] Forwarding packet #" << pkt->getPacketNumber()
+       << " to out[" << chosen << "]\n";
+
     emit(hopCountSignal, (long)pkt->getHopCount());
     totalForwarded++;
 
     send(pkt, "out", chosen);
+}
+
+void Router::finish()
+{
+    EV << "[" << getFullName() << "] Total packets forwarded: " << totalForwarded << "\n";
+    EV << "[" << getFullName() << "] Total packets dropped: " << totalDropped << "\n";
+
+    recordScalar("packetsForwarded", totalForwarded);
+    recordScalar("packetsDropped", totalDropped);
 }

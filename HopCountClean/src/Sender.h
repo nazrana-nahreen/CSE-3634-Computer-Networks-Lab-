@@ -8,8 +8,8 @@ using namespace omnetpp;
 
 /**
  * Sender module.
- * At simulation start it creates one MyMessage (hopCount=0, ttl=15)
- * and sends it out through its single output gate.
+ * At simulation start it creates 10 MyMessage packets (hopCount=0, ttl=15)
+ * and sends them out through its single output gate.
  */
 class Sender : public cSimpleModule
 {

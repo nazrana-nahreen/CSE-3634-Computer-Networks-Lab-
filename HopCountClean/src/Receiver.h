@@ -20,6 +20,7 @@ class Receiver : public cSimpleModule
 
   private:
     simsignal_t finalHopCountSignal;
+    simsignal_t droppedPacketsSignal;
     int packetsReceived;
     long totalHops;
 };

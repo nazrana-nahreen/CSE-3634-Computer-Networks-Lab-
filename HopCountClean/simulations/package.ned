@@ -1,3 +1,1 @@
-package hopcountclean.simulations;
-
-@license(LGPL);
+package hopcount;

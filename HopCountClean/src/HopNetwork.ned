@@ -50,7 +50,7 @@ network HopNetwork
 
     connections allowunconnected:
 
-        // ── Sender → entry routers ──────────────────────────
+        // ── Sender → entry routers ──────────────────────────────
         sender.out   --> r[0].in[0];
 
         // ── Layer 1  (r0) ────────────────────────────────────
@@ -58,7 +58,7 @@ network HopNetwork
         r[0].out[1]  --> r[2].in[0];
         r[0].out[2]  --> r[3].in[0];
 
-        // ── Layer 2  (r1, r2, r3) ───────────────────────────
+        // ── Layer 2  (r1, r2, r3) ───────────────────────────────
         r[1].out[0]  --> r[4].in[0];
         r[1].out[1]  --> r[5].in[0];
 
@@ -68,7 +68,7 @@ network HopNetwork
         r[3].out[0]  --> r[5].in[1];
         r[3].out[1]  --> r[6].in[1];
 
-        // ── Layer 3  (r4, r5, r6) ───────────────────────────
+        // ── Layer 3  (r4, r5, r6) ───────────────────────────────
         r[4].out[0]  --> r[7].in[0];
         r[4].out[1]  --> r[8].in[0];
 
@@ -78,7 +78,7 @@ network HopNetwork
         r[6].out[0]  --> r[8].in[1];
         r[6].out[1]  --> r[9].in[1];
 
-        // ── Layer 4  (r7, r8, r9) → Receiver ────────────────
+        // ── Layer 4  (r7, r8, r9) → Receiver ────────────────────
         r[7].out[0]  --> r[9].in[2];   // cross-link keeps it a mesh
         r[8].out[0]  --> r[9].in[3];
 
