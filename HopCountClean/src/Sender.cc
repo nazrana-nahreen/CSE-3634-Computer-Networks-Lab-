@@ -4,15 +4,19 @@ Define_Module(Sender);
 
 void Sender::initialize()
 {
-    // Create the message; default field values are hopCount=0, ttl=15
+    // Create 10 packets; default field values are hopCount=0, ttl=15
     // (defined in MyMessage.msg)
-    MyMessage *msg = new MyMessage("packet");
+    for (int i = 1; i <= 10; i++)
+    {
+        MyMessage *msg = new MyMessage("packet");
+        msg->setPacketNumber(i);
 
-    EV << "[Sender] Sending packet with hopCount=" << msg->getHopCount()
-       << "  ttl=" << msg->getTtl() << "\n";
+        EV << "[Sender] Sending packet #" << i << " with hopCount=" << msg->getHopCount()
+           << "  ttl=" << msg->getTtl() << "\n";
 
-    // Send immediately at t=0 on the single output gate
-    send(msg, "out");
+        // Send immediately at t=0 on the single output gate
+        send(msg, "out");
+    }
 }
 
 void Sender::handleMessage(cMessage *msg)
