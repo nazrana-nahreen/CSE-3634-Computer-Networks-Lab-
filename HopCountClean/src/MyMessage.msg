@@ -4,6 +4,7 @@
 
 message MyMessage
 {
-    int hopCount = 0;   // Incremented by each router that handles the packet
-    int ttl = 15;       // Time To Live: packet is dropped when this reaches 0
+    int hopCount = 0;       // Incremented by each router that handles the packet
+    int ttl = 15;           // Time To Live: packet is dropped when this reaches 0
+    int packetNumber = 0;   // Packet identifier (1-10)
 }
